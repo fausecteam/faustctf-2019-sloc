@@ -1,0 +1,21 @@
+name: SL Online Compiler
+slug: sloc
+authors:
+  - Michael Baer <michael.baer@fau.de>
+
+install:
+  debian_packages:
+    - python3
+  prevent_outgoing_connections: True
+  postinst_commands:
+    - systemctl enable sloc.socket
+    - install -o sloc -g sloc -m 700 -d "${DATA_DIR}/runs"
+    - install -o sloc -g sloc -m 700 -d "${DATA_DIR}/tmps"
+    - crontab -l | { cat; echo "*/5 * * * * find /srv/sloc/runs /srv/sloc/tmps -cmin +30 -exec rm {} \;"; } | crontab -
+
+checker:
+  module: sloc
+  class: SlocChecker
+  debian_packages:
+    - python3
+  pip_packages: []

@@ -1,0 +1,12 @@
+[Unit]
+Description=FAUST CTF SL Online Compiler Service
+
+[Service]
+ExecStart=-/usr/bin/stdbuf -o0 /srv/sloc/runner.py
+WorkingDirectory=/srv/sloc
+StandardInput=socket
+StandardOutput=socket
+User=sloc
+LimitNPROC=100
+LimitCPU=60
+

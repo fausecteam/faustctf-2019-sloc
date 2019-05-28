@@ -1,0 +1,7 @@
+DECLARE $%C%
+CALL STRNCMP "%S%" "hello" 42 -> $a
+IF $a %S% 0 GOTO a
+	GOTO b
+LABEL a
+	CALL DOESNTMATTER 89
+LABEL b

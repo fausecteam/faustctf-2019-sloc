@@ -1,0 +1,3 @@
+DECLARE $a
+DECLARE $b
+DECLARE $a

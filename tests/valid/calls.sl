@@ -1,0 +1,2 @@
+CALL print
+CALL fancy

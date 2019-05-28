@@ -1,0 +1,7 @@
+DECLARE $a;
+DECLARE $b;
+DECLARE $c;
+LABEL c
+LABEL b
+LABEL a
+CALL GOTO "" IF %C%
